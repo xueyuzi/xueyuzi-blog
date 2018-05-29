@@ -21,7 +21,7 @@
         justify-content: center;
     }
     .product_img_box{
-        /* display: none; */
+        flex-wrap: wrap;
     }
     .product_img_box > a{
         margin: 20px 10px;
@@ -43,17 +43,35 @@
     .product_title{
         display:flex;justify-content: center;padding: 10px;
     }
+    .product_text{
+        padding-top: 20px;
+        color:gray;
+        text-align:center
+    }
     
 </style>
 
 <div class="product_body">
        <div class="product_content">
             <div class="product_item">
-                    <div class="product_title" style=""><a id="jinson_btn"><img width="200px" src="/img/jinson_logo.gif" alt=""></a></div>
+                    <div class="product_title" style=""><a id="jinson_btn"><img width="150px" src="/img/jinson_logo.gif" alt=""></a></div>
+                    <h5 class="product_text">公司官网</h5>
                     <div id="jinson_box" class="product_img_box">
                         <a data-fancybox="gallery" href="http://o99hhtmyi.bkt.clouddn.com/jinson_3.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/jinson_3.png"></a>
                         <a data-fancybox="gallery" href="http://o99hhtmyi.bkt.clouddn.com/jinson_2.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/jinson_2.png"></a>
                         <a data-fancybox="gallery" href="http://o99hhtmyi.bkt.clouddn.com/jinson_1.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/jinson_1.png"></a>
+                    </div>
+                </div>
+                <div class="product_item">
+                    <div class="product_title" style=""><a id="jinson_btn"><img width="100px" src="http://www.medmoments.cn/images/logo01.png" alt=""></a></div>
+                    <h5 class="product_text">管理后台</h5>
+                    <div id="jinson_box" class="product_img_box">
+                        <a data-fancybox="gallery2" href="http://o99hhtmyi.bkt.clouddn.com/pro_2.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/pro_2.png"></a>
+                        <a data-fancybox="gallery2" href="http://o99hhtmyi.bkt.clouddn.com/pro_1.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/pro_1.png"></a>
+                        <a data-fancybox="gallery2" href="http://o99hhtmyi.bkt.clouddn.com/pro_3.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/pro_3.png"></a>
+                        <a data-fancybox="gallery2" href="http://o99hhtmyi.bkt.clouddn.com/pro_4.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/pro_4.png"></a>
+                        <a data-fancybox="gallery2" href="http://o99hhtmyi.bkt.clouddn.com/pro_5.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/pro_5.png"></a>
+                        <a data-fancybox="gallery2" href="http://o99hhtmyi.bkt.clouddn.com/pro_6.png"><img class="small_img" src="http://o99hhtmyi.bkt.clouddn.com/pro_6.png"></a>
                     </div>
                 </div>
        </div>
