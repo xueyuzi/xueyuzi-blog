@@ -7,14 +7,14 @@ date: 2016-06-27 13:22:37
 
 ## <font color="#17BBAF">本人鳕鱼</font> 
 ---
-<font color="#17bbaf">大学狗|PHPer|ACGer|白雪家|魔法师</font>
+<font color="#17bbaf">大学狗|PHPer|ACGer|白学家|魔法师</font>
 
 地球OL玩家
 ## status:
->Leavel : 20
+>Leavel : 22
 >Server : ShangHai
 >Class : Magician
->Magic Arts : PHP, ES5, Ajax, Linux, MySQL, UML, GIT
+>Magic Arts : PHP, ES5, JQuery, HTML5, CSS3, Linux, MySQL, UML, GIT, JAVA, Python, ES6, Vue, React, C#, Unity, ETH
 
 你可以在下面找到我:
 

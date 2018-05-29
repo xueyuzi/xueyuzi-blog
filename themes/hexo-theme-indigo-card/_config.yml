@@ -12,14 +12,15 @@ menu:
     url: /
   Archives:
     url: /archives
+  Product:
+    url: /product
   Coding:
     url: https://coding.net/u/xina
     target: _blank
   Github:
     url: https://github.com/xueyuzi
     target: _blank
-  Product:
-    url: /product
+  
 
 # 你的头像url
 avatar: https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0
