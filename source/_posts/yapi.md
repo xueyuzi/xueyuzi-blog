@@ -42,7 +42,8 @@ yapi支持手动和自动两种方式录入
 1. 首先设置手机代理为fiddler的监听端口
 2. 操作手机走各种业务流程
 3. 从fiddeer中搜寻与业务有关的请求
-4. 放入PostMan Collections中 （postman是有google开发的接口测试插件 collections中的收藏的文件夹中的请求可以批量执行）
+4. 存入PostMan Collections中 （postman是有google开发的接口测试插件 collections中的收藏的文件夹中的请求可以批量执行）
+> 注意: 放入的时候需要保存返回数据，不然导入到Yapi 返回值为空
 5. Collections 中的数据可直接导入到Yapi
 
 #### Chrome HAR
