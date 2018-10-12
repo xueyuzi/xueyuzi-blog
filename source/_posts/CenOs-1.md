@@ -22,7 +22,6 @@ categories:
 <!--more-->
 ### ip配置
 
-
 [root]# vim /etc/sysconfig/network-scripts/ifcfg-eno167777736
 HWADDR mac地址
 BOOTPROTO 动态静态

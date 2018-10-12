@@ -79,4 +79,4 @@ theme: hexo-theme-indigo-card
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repo: https://git.coding.net/xina/myblog.git
+  repo: git@github.com:xueyuzi/xueyuzi-blog.git
