@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114286805-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114286805-1');
+    </script>
+
+    
+    
+    
+    
+    <title>提升开发效率的工具 gulp工作流 | 鳕鱼子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="gulp">
+    <meta name="description" content="gulpfile.js配置task任务来执行例如图片/js/css/压缩js/css依赖管理性能优化我们都知道浏览器请求的文件越多越耗时，请求的文件越大越耗时，尤其是在我们现在很多使用前端MVC, MVVM框架的时候，我们为了前端代码更清晰，结构更合理，我们就由很多JS文件，无疑又拖慢了网页的速度。为了解决这个问题，因此我们需要做两件事文件合并浏览器需要下载多个JS文件，而浏览器是有并发限制，也就">
+<meta name="keywords" content="gulp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提升开发效率的工具 gulp工作流">
+<meta property="og:url" content="http://www.xueyuzi.com/2017/09/22/gulp-glow/index.html">
+<meta property="og:site_name" content="鳕鱼子的博客">
+<meta property="og:description" content="gulpfile.js配置task任务来执行例如图片/js/css/压缩js/css依赖管理性能优化我们都知道浏览器请求的文件越多越耗时，请求的文件越大越耗时，尤其是在我们现在很多使用前端MVC, MVVM框架的时候，我们为了前端代码更清晰，结构更合理，我们就由很多JS文件，无疑又拖慢了网页的速度。为了解决这个问题，因此我们需要做两件事文件合并浏览器需要下载多个JS文件，而浏览器是有并发限制，也就">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-11T03:06:07.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="提升开发效率的工具 gulp工作流">
+<meta name="twitter:description" content="gulpfile.js配置task任务来执行例如图片/js/css/压缩js/css依赖管理性能优化我们都知道浏览器请求的文件越多越耗时，请求的文件越大越耗时，尤其是在我们现在很多使用前端MVC, MVVM框架的时候，我们为了前端代码更清晰，结构更合理，我们就由很多JS文件，无疑又拖慢了网页的速度。为了解决这个问题，因此我们需要做两件事文件合并浏览器需要下载多个JS文件，而浏览器是有并发限制，也就">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">XueYuZi</h5>
+          <a href="mailto:xueyu.d@gmail.com" title="xueyu.d@gmail.com" class="mail">xueyu.d@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-Home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-Archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/product"  >
+                <i class="icon icon-lg icon-Product"></i>
+                Product
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://coding.net/u/xina" target="_blank" >
+                <i class="icon icon-lg icon-Coding"></i>
+                Coding
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xueyuzi" target="_blank" >
+                <i class="icon icon-lg icon-Github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">提升开发效率的工具 gulp工作流</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">提升开发效率的工具 gulp工作流</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-22T09:51:36.000Z" itemprop="datePublished" class="page-time">
+  2017-09-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-gulp-glow"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">提升开发效率的工具 gulp工作流</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-22 17:51:36" datetime="2017-09-22T09:51:36.000Z"  itemprop="datePublished">2017-09-22</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>gulpfile.js配置task任务来执行例如<br>图片/js/css/压缩<br>js/css依赖管理<br>性能优化<br>我们都知道浏览器请求的文件越多越耗时，请求的文件越大越耗时，尤其是在我们现在很多使用前端MVC, MVVM框架的时候，我们为了前端代码更清晰，结构更合理，我们就由很多JS文件，无疑又拖慢了网页的速度。为了解决这个问题，因此我们需要做两件事<br>文件合并<br>浏览器需要下载多个JS文件，而浏览器是有并发限制，也就是同时并发只能下载几个文件，假如浏览器并发数是5，你有20个JS文件，而每5个需要2S, 那么你光下载JS文件都需要8S，那么网页的性能可想而知，所以我们需要合并多个文件以减少文件的数量。<br>文件压缩<br>我们知道文件越大，下载越慢，而针对JavaScript和CSS, 里面的空格，换行这些都是为了让我们读代码时更容易阅读，但是对机器来说，这些对它没有影响，所以为了减少文件大小，一般的情况我们都会用工具去掉空格和换行，有时候我们还会用比较短的变量名(记住这个要让工具最后压缩时做，而源代码一定要保证命名可读性) 来减少文件大小。<br>而所有的前端构建工具都具有文件合并和压缩的功能。<br>效率提升<br>Vendor前缀<br>在CSS3使用越来越多的时候，我们都知道一些CSS的特性，不同的浏览器CSS有不同的前缀，如果我们手工添加将会很繁琐，而如果使用构建工具，很多构建工具可以自动给我添加CSS的Vendor前缀<br>单元测试<br>JavaScript的单元测试在使用MVC或者MVVM的框架后，变得越来越容易，而单元测试是质量保证的一个很重要的手段，所以在提交之前，使用构建工具自动跑一遍我们的单元测试是非常重要的<br>代码分析<br>我们写的JavaScript很多时候会有一些潜在的bug, 比如忘了添加分号，某个变量没有等等，使用一些JavaScript的代码分析工具，可以很好的帮我们检查一些常见的问题。<br>HTML引用JavaScript或者CSS文件<br>比如我们需要使用Bower之类来引用前端JavaScript和CSS的第三方库，那么如果版本升级，添加移除等都用手工来修改HTML的话，第一比较耗时，第二比较容易疏漏，尤其是在我们需要切换Debug和production版本时将会有很多额外的工作，那么使用前端构建工具可以很好的解决这些问题。<br>下篇更新 Gulp 的安装 和使用</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-10-11T03:06:07.721Z" itemprop="dateUpdated">2018-10-11 11:06:07</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.xueyuzi.com">
+            <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0" alt="XueYuZi">
+            XueYuZi
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/24/git-detached/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git问题记录--如何从从detached HEAD状态解救出来</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/07/19/webpack-ExtractTextPlugin/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">css分离打包（ExtractTextPlugin less）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>XueYuZi &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div> -->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

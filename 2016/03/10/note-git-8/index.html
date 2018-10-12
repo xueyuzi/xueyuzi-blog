@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114286805-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114286805-1');
+    </script>
+
+    
+    
+    
+    
+    <title>三区结构 | 鳕鱼子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="三区结构              三区结构是Git的结构:工作区–暂存区–版本库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三区结构">
+<meta property="og:url" content="http://www.xueyuzi.com/2016/03/10/note-git-8/index.html">
+<meta property="og:site_name" content="鳕鱼子的博客">
+<meta property="og:description" content="三区结构              三区结构是Git的结构:工作区–暂存区–版本库">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://7xlana.com1.z0.glb.clouddn.com/myblog/git/git-operations.png">
+<meta property="og:image" content="http://7xlana.com1.z0.glb.clouddn.com/git_note_2.png">
+<meta property="og:updated_time" content="2018-10-11T03:06:07.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="三区结构">
+<meta name="twitter:description" content="三区结构              三区结构是Git的结构:工作区–暂存区–版本库">
+<meta name="twitter:image" content="http://7xlana.com1.z0.glb.clouddn.com/myblog/git/git-operations.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">XueYuZi</h5>
+          <a href="mailto:xueyu.d@gmail.com" title="xueyu.d@gmail.com" class="mail">xueyu.d@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-Home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-Archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/product"  >
+                <i class="icon icon-lg icon-Product"></i>
+                Product
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://coding.net/u/xina" target="_blank" >
+                <i class="icon icon-lg icon-Coding"></i>
+                Coding
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xueyuzi" target="_blank" >
+                <i class="icon icon-lg icon-Github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">三区结构</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">三区结构</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-03-10T14:27:30.000Z" itemprop="datePublished" class="page-time">
+  2016-03-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/git/">git</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-note-git-8"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">三区结构</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-03-10 22:27:30" datetime="2016-03-10T14:27:30.000Z"  itemprop="datePublished">2016-03-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/git/">git</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xlana.com1.z0.glb.clouddn.com/myblog/git/git-operations.png" alt="三区结构" title="">
+                </div>
+                <div class="image-caption">三区结构</div>
+            </figure>
+<p>三区结构是Git的结构:工作区–暂存区–版本库<br><a id="more"></a></p>
+<p><strong>版本库</strong>:工作区有一个隐藏目录.git 这个不算工作区，而是Git的版本库。<br><strong>暂存区</strong>：英文叫stage,或index。一般存放在git 目录下的index文件(.git/index)中，所以我们把暂存区时也叫作索引(index).<br>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://7xlana.com1.z0.glb.clouddn.com/git_note_2.png" alt="工作区-版本库" title="">
+                </div>
+                <div class="image-caption">工作区-版本库</div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-10-11T03:06:07.721Z" itemprop="dateUpdated">2018-10-11 11:06:07</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.xueyuzi.com">
+            <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0" alt="XueYuZi">
+            XueYuZi
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2016/03/10/note-git-9/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">远程仓库</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/03/10/note-git-7/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">查看仓库状态</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>XueYuZi &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div> -->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114286805-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114286805-1');
+    </script>
+
+    
+    
+    
+    
+    <title>区块链Dapp系列（一） | 鳕鱼子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Dapp">
+    <meta name="description" content="现在，在初步了解以太坊的基本概念之后，我们将开始构建投票DApp。通过实际应用开发，有助于我们加深 对以太坊的认识，并初步了解以太坊所提供的功能。下图展示了应用的整体结构：                                                                                              以太坊应用结构">
+<meta name="keywords" content="Dapp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链Dapp系列（一）">
+<meta property="og:url" content="http://www.xueyuzi.com/2017/11/27/dapp-1/index.html">
+<meta property="og:site_name" content="鳕鱼子的博客">
+<meta property="og:description" content="现在，在初步了解以太坊的基本概念之后，我们将开始构建投票DApp。通过实际应用开发，有助于我们加深 对以太坊的认识，并初步了解以太坊所提供的功能。下图展示了应用的整体结构：                                                                                              以太坊应用结构">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://o99hhtmyi.bkt.clouddn.com/Voting-Testrpc.png">
+<meta property="og:updated_time" content="2018-10-11T03:06:07.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="区块链Dapp系列（一）">
+<meta name="twitter:description" content="现在，在初步了解以太坊的基本概念之后，我们将开始构建投票DApp。通过实际应用开发，有助于我们加深 对以太坊的认识，并初步了解以太坊所提供的功能。下图展示了应用的整体结构：                                                                                              以太坊应用结构">
+<meta name="twitter:image" content="http://o99hhtmyi.bkt.clouddn.com/Voting-Testrpc.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">XueYuZi</h5>
+          <a href="mailto:xueyu.d@gmail.com" title="xueyu.d@gmail.com" class="mail">xueyu.d@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-Home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-Archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/product"  >
+                <i class="icon icon-lg icon-Product"></i>
+                Product
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://coding.net/u/xina" target="_blank" >
+                <i class="icon icon-lg icon-Coding"></i>
+                Coding
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xueyuzi" target="_blank" >
+                <i class="icon icon-lg icon-Github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">区块链Dapp系列（一）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">区块链Dapp系列（一）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-27T11:33:12.000Z" itemprop="datePublished" class="page-time">
+  2017-11-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-dapp-1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">区块链Dapp系列（一）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-27 19:33:12" datetime="2017-11-27T11:33:12.000Z"  itemprop="datePublished">2017-11-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/笔记/">笔记</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>现在，在初步了解以太坊的基本概念之后，我们将开始构建投票DApp。通过实际应用开发，有助于我们加深 对以太坊的认识，并初步了解以太坊所提供的功能。<br>下图展示了应用的整体结构：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://o99hhtmyi.bkt.clouddn.com/Voting-Testrpc.png" alt="以太坊应用结构" title="">
+                </div>
+                <div class="image-caption">以太坊应用结构</div>
+            </figure>
+<p>从图中可以看到，网页通过（HTTP上的）远程过程调用（RPC：Remote Procedure Call）与区块链节点进行通信。 web3.js已经封装了以太坊规定的全部 RPC 调用，因此利用它就可以与区块链进行交互，而不必手写那些RPC请求包。 使用web3.js的另一个好处是，你可以使用自己喜欢的前端框架来构建出色的web 应用。<br>由于获得一个同步的全节点相当耗时，并占用大量磁盘空间。为了在我们对区块链的兴趣消失之前掌握 如何开发一个去中心化应用，本课程将使用ganache软件来模拟区块链节点，以便快速开发并测试应用， 从而可以将注意力集中在去中心化的思想理解与DApp应用逻辑开发方面。<br>接下来，我们将编写一个投票合约，然后编译合约并将其部署到区块链节点 —— ganache上。<br>最后，我们将分别通过命令行和网页这两种方式，与区块链进行交互。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-10-11T03:06:07.721Z" itemprop="dateUpdated">2018-10-11 11:06:07</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.xueyuzi.com">
+            <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0" alt="XueYuZi">
+            XueYuZi
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dapp/">Dapp</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/24/vue-echarts/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">echarts配合vue使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/13/ioc-di/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">IOC 和 DI 和 反射的概念</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>XueYuZi &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div> -->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

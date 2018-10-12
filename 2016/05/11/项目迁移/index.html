@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114286805-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114286805-1');
+    </script>
+
+    
+    
+    
+    
+    <title>BBS项目后端环境迁移 | 鳕鱼子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="之前项目部署在coding免费提供的PASS上，现在这个服务要收费了。所以权衡了一下还是把项目都迁移到了正在搞学生促销的阿里云主机上去了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BBS项目后端环境迁移">
+<meta property="og:url" content="http://www.xueyuzi.com/2016/05/11/项目迁移/index.html">
+<meta property="og:site_name" content="鳕鱼子的博客">
+<meta property="og:description" content="之前项目部署在coding免费提供的PASS上，现在这个服务要收费了。所以权衡了一下还是把项目都迁移到了正在搞学生促销的阿里云主机上去了。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-11T03:06:07.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BBS项目后端环境迁移">
+<meta name="twitter:description" content="之前项目部署在coding免费提供的PASS上，现在这个服务要收费了。所以权衡了一下还是把项目都迁移到了正在搞学生促销的阿里云主机上去了。">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">XueYuZi</h5>
+          <a href="mailto:xueyu.d@gmail.com" title="xueyu.d@gmail.com" class="mail">xueyu.d@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-Home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-Archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/product"  >
+                <i class="icon icon-lg icon-Product"></i>
+                Product
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://coding.net/u/xina" target="_blank" >
+                <i class="icon icon-lg icon-Coding"></i>
+                Coding
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xueyuzi" target="_blank" >
+                <i class="icon icon-lg icon-Github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">BBS项目后端环境迁移</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">BBS项目后端环境迁移</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-05-11T14:26:37.000Z" itemprop="datePublished" class="page-time">
+  2016-05-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/项目/">项目</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/项目/BBS/">BBS</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-项目迁移"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">BBS项目后端环境迁移</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-05-11 22:26:37" datetime="2016-05-11T14:26:37.000Z"  itemprop="datePublished">2016-05-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/项目/">项目</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/项目/BBS/">BBS</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>之前项目部署在coding免费提供的PASS上，现在这个服务要收费了。<br>所以权衡了一下还是把项目都迁移到了正在搞学生促销的阿里云主机上去了。<br><a id="more"></a><br><a href="http://120.27.109.4/message" target="_blank" rel="noopener">项目地址</a><br>域名懒得挂了，说不定什么时候就重做了。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-10-11T03:06:07.721Z" itemprop="dateUpdated">2018-10-11 11:06:07</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.xueyuzi.com">
+            <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0" alt="XueYuZi">
+            XueYuZi
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/21/animatecss/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Animate.css 一款强大的预设css3动画库</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2016/04/13/CenOs-1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">CentOs基础配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>XueYuZi &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div> -->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

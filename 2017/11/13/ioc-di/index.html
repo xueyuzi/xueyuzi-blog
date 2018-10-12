@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114286805-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114286805-1');
+    </script>
+
+    
+    
+    
+    
+    <title>IOC 和 DI 和 反射的概念 | 鳕鱼子的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="java中的反射对象是由IoC容器根据类加载器创建的。对象不是预先创建编译好，而是使用时动态创建。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOC 和 DI 和 反射的概念">
+<meta property="og:url" content="http://www.xueyuzi.com/2017/11/13/ioc-di/index.html">
+<meta property="og:site_name" content="鳕鱼子的博客">
+<meta property="og:description" content="java中的反射对象是由IoC容器根据类加载器创建的。对象不是预先创建编译好，而是使用时动态创建。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-11T03:06:07.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOC 和 DI 和 反射的概念">
+<meta name="twitter:description" content="java中的反射对象是由IoC容器根据类加载器创建的。对象不是预先创建编译好，而是使用时动态创建。">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">XueYuZi</h5>
+          <a href="mailto:xueyu.d@gmail.com" title="xueyu.d@gmail.com" class="mail">xueyu.d@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-Home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-Archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/product"  >
+                <i class="icon icon-lg icon-Product"></i>
+                Product
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://coding.net/u/xina" target="_blank" >
+                <i class="icon icon-lg icon-Coding"></i>
+                Coding
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xueyuzi" target="_blank" >
+                <i class="icon icon-lg icon-Github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">IOC 和 DI 和 反射的概念</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">IOC 和 DI 和 反射的概念</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-13T05:34:01.000Z" itemprop="datePublished" class="page-time">
+  2017-11-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#java中的反射"><span class="post-toc-number">1.</span> <span class="post-toc-text">java中的反射</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#依赖注入-DI"><span class="post-toc-number">2.</span> <span class="post-toc-text">依赖注入(DI)</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ioc-di"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">IOC 和 DI 和 反射的概念</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-13 13:34:01" datetime="2017-11-13T05:34:01.000Z"  itemprop="datePublished">2017-11-13</time>
+
+            
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="java中的反射"><a href="#java中的反射" class="headerlink" title="java中的反射"></a>java中的反射</h1><p>对象是由IoC容器根据类加载器创建的。对象不是预先创建编译好，而是使用时动态创建。<br><a id="more"></a><br>控制反转：利用反射技术，将对象创建权利转移给容器，一般结合配置文件，读取根据配置文件创建对象，省去了用来判断创建哪个对象的switch和if语句。</p>
+<h1 id="依赖注入-DI"><a href="#依赖注入-DI" class="headerlink" title="依赖注入(DI)"></a>依赖注入(DI)</h1><p>依赖注入也是实现控制反转(IOC)的一个技术，其实我们在项目中也经常用到，即对象的实例化由别的类注入，可以是容器创建了然后注入，也可以是另外的类中创建后注入，不是自己创建，也是将控制权转自给了别人。可以用构造函数也可以用set函数</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2018-10-11T03:06:07.721Z" itemprop="dateUpdated">2018-10-11 11:06:07</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.xueyuzi.com">
+            <img src="https://dn-coding-net-production-static.qbox.me/699526e2-04fc-4ef8-9f61-6cf42693f51d.jpg?imageMogr2/auto-orient/format/jpeg/crop/!236x236a344a0" alt="XueYuZi">
+            XueYuZi
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/27/dapp-1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">区块链Dapp系列（一）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/24/git-detached/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git问题记录--如何从从detached HEAD状态解救出来</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <!-- <div class="top">
+        
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>XueYuZi &copy; 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div> -->
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: , REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
